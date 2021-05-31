@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.658),
+      rgba(78, 78, 78, 0.452),
+      rgba(0, 0, 0, 0.521)
+    ),
+    url(smoothies-3809509_1920.jpg);
+  background-attachment: fixed;
+}
+.wrapper1 {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgb(46, 36, 14);
+  padding: 10px;
+}
+
+.header {
+  opacity: 0.9;
+  height: 95vh;
+  border-radius: 3px;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.658),
+      rgba(78, 78, 78, 0.452),
+      rgba(0, 0, 0, 0.521)
+    ),
+    url(SP1.jpg);
+  background-size: cover;
+  background-position: bottom;
+  /* clip-path: polygon(x y, x y, x y); */
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  position: relative;
+}
+.logo-box1 {
+  position: absolute;
+  top: 60px;
+  left: 40px;
+  animation: moveInRight;
+  animation-duration: 4s;
+  /* animation-delay: 5s; */
+  /* animation-iteration-count: 2; */
+  /* animation-timing-function: ease-in-out; */
+}
+.logo1 {
+  height: 60px;
+}
+.text-box1 {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(
+    -50%
+  ); /*put the middle text in the header to the center*/
+  background-color: rgba(0, 0, 0, 0.356);
+  border-radius: 5px;
+  text-align: center;
+}
+.heading-primary1 {
+  color: blanchedalmond;
+  backface-visibility: hidden;
+  margin-bottom: 60px;
+}
+
+.heading-primary-main1 {
+  display: block;
+  font-size: 50px;
+  font-weight: 500;
+  text-align: center;
+
+  letter-spacing: 10px;
+  animation: moveInLeft;
+  animation-duration: 3s;
+  /* backface-visibility: hidden; fixes shaky issues*/
+}
+
+.heading-primary-sub1 {
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  animation: moveInRight;
+  animation-duration: 3s;
+}
+
+/*making an animation
+https://www.udemy.com/course/advanced-css-and-sass/learn/lecture/8274406?start=0#overview
+*/
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(+20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(+100px);
+  }
+  80% {
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes appearSlowly {
+  0% {
+    opacity: 0;
+    transform: translateX(+30px);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+/* order button */
+.btn:link,
+.btn:visited {
+  color: gray;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block; /*stops over layering */
+  border-radius: 100px;
+  font-family: monospace;
+  font-size: 18px;
+  animation: appearSlowly;
+  animation-duration: 3s;
+  position: relative;
+}
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.658);
+}
+.btn:active {
+  transform: translateY(-1px);
+}
+.btn-white {
+  background-color: white;
+  color: gray;
+}
+
+/* button shadow anlimation on hover */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+.btn-white::after {
+  background-color: #fff;
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+/* ---------------------Nav Button ------------------------------------------ */
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+  border-radius: 20px;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: rgba(139, 91, 0, 0.568);
+  color: white;
+}
+
+#harvestText1 {
+  animation: moveInRight;
+  animation-duration: 5s;
+  font-weight: bold;
+}
+
+.textBody1 {
+  margin-top: 20px;
+  animation: moveInLeft;
+  animation-duration: 4s;
+  font-size: 14px;
+  font-weight: bold;
+  height: 150px;
+  width: auto;
+  text-align: center;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.658),
+      rgba(78, 78, 78, 0.452),
+      rgba(0, 0, 0, 0.521)
+    ),
+    url(apple-4217863_1920.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+
+.textBodyInfo1 {
+  color: white;
+  margin-top: 5px;
+  font-family: monospace;
+  text-shadow: white 2px;
+}
+
+.textBody2 {
+  margin-top: 20px;
+  animation-duration: 4s;
+  color: white;
+  opacity: 0.9;
+  height: 150px;
+  font-family: monospace;
+  text-shadow: white 2px;
+  font-weight: bold;
+  width: auto;
+  background-color: orange;
+  animation: appearSlowly;
+  animation-duration: 3s;
+}
+.footer1 {
+  background: rgb(0, 0, 0);
+  opacity: 50%;
+  margin-top: 30px;
+  margin-bottom: 1ppx;
+
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  color: rgb(241, 210, 255);
+}
+
+/* ----------------Order now-------------------- */
+.cartHeader {
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.226);
+  height: 150px;
+  background-size: cover;
+  position: relative;
+  background-attachment: unset;
+  opacity: 0.7;
+  animation-duration: 3s;
+}
+.overlay {
+  position: relative;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  background-color: rgba(0, 0, 0, 0.308);
+}
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px 60px 0 60px;
+}
+
+nav li {
+  list-style-type: none;
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+nav li span {
+  padding-left: 5px;
+}
+li a {
+  padding: 5px;
+  background-color: white;
+  text-decoration: none;
+}
+.cart a {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#smoothOption {
+  height: 100px;
+  width: auto;
+}
+
+.container,
+.products-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding-bottom: 100px;
+}
+
+.image {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(172, 0, 164, 0.493);
+  border-radius: 20px;
+}
+
+.add-cart {
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.add-cart:visited {
+  color: blue;
+}
+
+h3 {
+  color: white;
+}
+
+.itemDesc {
+  display: block;
+  height: 80px;
+  width: 100px;
+  text-align: center;
+  color: white;
+}
+
+/*---------------CART STUDD-----------------------*/
+
+.products-container {
+  max-width: 650px;
+  justify-content: space-around;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.products-container ion-icon {
+  font-size: 25px;
+  color: blue;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.product-header {
+  width: 100%;
+  max-width: 650px;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 4px solid lightgray;
+  margin: 0 auto;
+}
+
+.product-title {
+  width: 45%;
+}
+
+.price {
+  width: 15%;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.quantity {
+  width: 30%;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.total {
+  width: 10%;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+}
+
+.product {
+  width: 45%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.product img {
+  width: 75px;
+}
+
+.products {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.basketTotalContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 10px 0;
+}
+
+.basketTotalTitle {
+  width: 30%;
+}
+
+.basketTotal {
+  width: 10%;
+}
+
+/* contact */
+
+.businessNum {
+  color: white;
+  font-size: 40px;
+  text-align: left;
+  margin-left: 20px;
+}
