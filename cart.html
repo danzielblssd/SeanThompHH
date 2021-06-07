@@ -38,6 +38,48 @@
       <div class="products"></div>
     </div>
 
+    <form
+  action="https://formspree.io/f/xvodable"
+  method="POST"
+>
+
+<label>
+  Name:
+  <input type="text" name="name">
+</label>
+<br>
+  <label>
+    Your email:
+    <input type="email" name="_replyto">
+  </label>
+<br>
+  <label>
+    Phone Number:
+    <input type="tel" name="telephone">
+  </label>
+<br>  <label>
+    Comment/Concerns:
+    <textarea name="message"></textarea>
+  </label>
+  <label>
+    <input type='hidden' name="productsInCart" id="saveServer"/> 
+    <input type='hidden' name="totalCost" id="saveServer1"/> 
+
+  </label>
+
+<label >
+ <div class="endingItems"></div>
+<div class="stuff"></div>
+
+
+</label>
+
+  <!-- your other form fields go here -->
+
+  <button type="submit">Place Order</button>
+</form>
+<br><br>
+
   </div>
   <script src="script.js"></script>
   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>

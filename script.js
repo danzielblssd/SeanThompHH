@@ -151,8 +151,12 @@ function totalCost(product, action) {
 }
 function displayCart() {
   let cartItems = localStorage.getItem("productsInCart");
+
   cartItems = JSON.parse(cartItems);
   let productContainer = document.querySelector(".products");
+  let endingItems = document.querySelector(".endingItems");
+  let theStuff = document.querySelector(".stuff");
+
   let cartCost = localStorage.getItem("totalCost");
   console.log(cartItems);
   if (cartItems && productContainer) {
@@ -172,6 +176,7 @@ function displayCart() {
         <ion-icon class="increase" name="add-circle-outline"></ion-icon>
       </div>
       <div class="total">${item.inCart * item.price}</div>
+
       `;
     });
     productContainer.innerHTML += `
@@ -184,6 +189,52 @@ function displayCart() {
       </h4>
     </div>
     `;
+  }
+
+  if (cartItems && endingItems) {
+    console.log("endingItems is running");
+    endingItems.innerHTML = "";
+    Object.values(cartItems).map((item) => {
+      endingItems.innerHTML += `
+      
+
+      <div class="endingItems">
+       ${item.inCart} ${item.name}(s).  
+      </div>
+      `;
+
+      function save_data() {
+        // Save functionality here...
+
+        var input = document.getElementById("saveServer");
+        localStorage.setItem("server", input.value);
+        var storedValue = `${item.inCart} ${item.name}(s). `;
+      }
+
+      function load_data() {
+        var input = document.getElementById("saveServer");
+        input.value += `${item.inCart} ${item.name}(s). `;
+      }
+
+      load_data();
+
+      function save_dataQ() {
+        // Save functionality here...
+
+        var input = document.getElementById("saveServer1");
+        localStorage.setItem("server1", input.value);
+        var storedValue = `${item.inCart} ${item.name}(s). 
+        Total is  $${cartCost}.00.`;
+      }
+
+      function load_dataQ() {
+        var input = document.getElementById("saveServer1");
+        input.value = `
+        Total is  $${cartCost}.00.`;
+      }
+
+      load_dataQ();
+    });
   }
 
   deleteButtons();
@@ -222,6 +273,7 @@ function deleteButtons() {
 
       delete cartItems[productName];
       localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
       displayCart();
       onLoadCartNumbers();
     });
@@ -274,6 +326,7 @@ function manageQuantity() {
       cartNumbers(cartItems[currentProduct]);
       totalCost(cartItems[currentProduct]);
       localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+
       displayCart();
     });
   }
@@ -281,3 +334,28 @@ function manageQuantity() {
 
 onLoadCartNumbers();
 displayCart();
+
+// form
+
+// var form = document.getElementById("my-form");
+
+// async function handleSubmit(event) {
+//   event.preventDefault();
+//   var status = document.getElementById("my-form-status");
+//   var data = new FormData(event.target);
+//   fetch(event.target.action, {
+//     method: form.method,
+//     body: data,
+//     headers: {
+//       Accept: "application/json",
+//     },
+//   })
+//     .then((response) => {
+//       status.innerHTML = "Thanks for your submission!";
+//       form.reset();
+//     })
+//     .catch((error) => {
+//       status.innerHTML = "Oops! There was a problem submitting your form";
+//     });
+// }
+// form.addEventListener("submit", handleSubmit);
